@@ -105,6 +105,63 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
         (function() {
             'use strict';
             
+            // Counter for unique region labels
+            var regionCounter = 1;
+            var usedLabels = new Set();
+            
+            // Function to generate unique, descriptive labels for regions
+            function generateUniqueRegionLabel(element) {
+                var label = '';
+                
+                // Try to get label from element content or attributes
+                if (element.textContent && element.textContent.trim()) {
+                    var text = element.textContent.trim();
+                    // Use first few words as label
+                    var words = text.split(/\s+/).slice(0, 3).join(' ');
+                    if (words.length > 50) {
+                        words = words.substring(0, 47) + '...';
+                    }
+                    label = words;
+                } else if (element.getAttribute('title')) {
+                    label = element.getAttribute('title');
+                } else if (element.getAttribute('alt')) {
+                    label = element.getAttribute('alt');
+                } else if (element.className) {
+                    // Generate label from class names
+                    var className = element.className.split(' ')[0];
+                    label = className.replace(/[-_]/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2');
+                    label = label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
+                }
+                
+                // Fallback to element type
+                if (!label) {
+                    var tagName = element.tagName.toLowerCase();
+                    if (tagName === 'button') {
+                        label = 'Button';
+                    } else if (tagName === 'input') {
+                        var type = element.getAttribute('type') || 'text';
+                        label = type.charAt(0).toUpperCase() + type.slice(1) + ' Input';
+                    } else if (tagName === 'a') {
+                        label = 'Link';
+                    } else if (tagName === 'form') {
+                        label = 'Form';
+                    } else {
+                        label = 'Interactive Content';
+                    }
+                }
+                
+                // Ensure uniqueness
+                var originalLabel = label;
+                var counter = 1;
+                while (usedLabels.has(label)) {
+                    label = originalLabel + ' ' + (counter + 1);
+                    counter++;
+                }
+                
+                usedLabels.add(label);
+                return label;
+            }
+            
             // Function to add landmarks to elements missing them
             function addMissingLandmarks() {
                 // Find interactive elements not in landmarks
@@ -164,7 +221,10 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                             } else {
                                 wrapper = document.createElement('div');
                                 wrapper.setAttribute('role', 'region');
-                                wrapper.setAttribute('aria-label', 'Interactive Content');
+                                
+                                // Generate unique, descriptive label based on element content/context
+                                var label = generateUniqueRegionLabel(element);
+                                wrapper.setAttribute('aria-label', label);
                                 wrapper.className = 'hello-landmark-complementary';
                             }
                             
