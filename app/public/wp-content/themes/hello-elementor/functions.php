@@ -62,6 +62,19 @@ function hello_elementor_contrast_accessibility_styles() {
 add_action( 'wp_enqueue_scripts', 'hello_elementor_contrast_accessibility_styles' );
 
 /**
+ * Enqueue homepage contrast fixes
+ */
+function hello_elementor_homepage_contrast_styles() {
+	wp_enqueue_style(
+		'hello-elementor-homepage-contrast-fixes',
+		get_template_directory_uri() . '/homepage-contrast-fixes.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_homepage_contrast_styles' );
+
+/**
  * Include accessibility fixes for ThemesFlat search widget
  */
 require_once get_template_directory() . '/tf-search-widget-accessibility-fix.php';

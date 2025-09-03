@@ -1,0 +1,168 @@
+/*
+ * Homepage Contrast Accessibility Fixes
+ * Risolve i problemi di contrasto per raggiungere il rapporto 4.5:1 richiesto da WCAG 2.1 AA
+ */
+
+/* Correzione per il colore #666 nella homepage */
+body.home .category-description,
+body.home p[style*="color: #666"],
+body.home [style*="color: #666"],
+body.home .post-meta {
+    color: #4a4a4a !important; /* Migliora il contrasto da #666 a 4.5:1 */
+}
+
+/* Correzione per elementi con colore #666 senza spazi */
+body.home [style*="color:#666"] {
+    color: #4a4a4a !important;
+}
+
+/* Correzione per il colore #55595c nella navigazione */
+body.home .site-navigation-dropdown ul.menu li a {
+    color: #333 !important; /* Migliora il contrasto da #55595c */
+}
+
+/* Correzione per il colore #494c4f nel toggle di navigazione */
+body.home .site-navigation-toggle {
+    color: #333 !important; /* Migliora il contrasto da #494c4f */
+}
+
+/* Correzione per bordi con colore #666 */
+body.home input[type="date"],
+body.home input[type="email"],
+body.home input[type="number"],
+body.home input[type="password"],
+body.home input[type="search"],
+body.home input[type="tel"],
+body.home input[type="text"],
+body.home input[type="url"],
+body.home select,
+body.home textarea {
+    border: 1px solid #4a4a4a !important; /* Migliora il contrasto da #666 */
+}
+
+/* Correzione per bordi con colore #ccc */
+body.home [style*="border: 1px solid #ccc"],
+body.home table td,
+body.home table th {
+    border-color: #999 !important; /* Migliora il contrasto da #ccc */
+}
+
+/* Correzione per link con colore #c36 */
+body.home a {
+    color: #0073aa !important; /* Migliora il contrasto da #c36 */
+}
+
+body.home a:hover,
+body.home a:focus {
+    color: #005a87 !important; /* Stato hover/focus più scuro */
+}
+
+/* Correzione per testi generici */
+body.home .site-header .site-title,
+body.home .site-footer .site-title,
+body.home h1, body.home h2, body.home h3, body.home h4, body.home h5, body.home h6 {
+    color: #333 !important;
+}
+
+/* Correzione per descrizioni e meta informazioni */
+body.home .site-description,
+body.home .post-meta,
+body.home .category-description {
+    color: #4a4a4a !important;
+}
+
+/* Modalità alto contrasto */
+@media (prefers-contrast: high) {
+    body.home {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+    
+    body.home a {
+        color: #0000ff !important;
+    }
+    
+    body.home a:visited {
+        color: #800080 !important;
+    }
+}
+
+/* Supporto per modalità scura */
+@media (prefers-color-scheme: dark) {
+    body.home {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+    
+    body.home .site-navigation-dropdown ul.menu li a {
+        background: #333 !important;
+        color: #fff !important;
+    }
+    
+    body.home input[type="date"],
+    body.home input[type="email"],
+    body.home input[type="number"],
+    body.home input[type="password"],
+    body.home input[type="search"],
+    body.home input[type="tel"],
+    body.home input[type="text"],
+    body.home input[type="url"],
+    body.home select,
+    body.home textarea {
+        background-color: #333 !important;
+        color: #fff !important;
+        border-color: #666 !important;
+    }
+}
+
+/* Correzione specifica per elementi inline con stili */
+body.home [style*="color: #666"] {
+    color: #4a4a4a !important;
+}
+
+body.home [style*="color:#666"] {
+    color: #4a4a4a !important;
+}
+
+/* Correzione per elementi con background scuro */
+body.home [style*="background-color: #92003b"] {
+    color: #fff !important;
+}
+
+/* Assicura che tutti gli elementi di form abbiano contrasto sufficiente */
+body.home button,
+body.home input[type="button"],
+body.home input[type="submit"] {
+    color: #333 !important;
+    border: 1px solid #4a4a4a !important;
+}
+
+body.home button:hover,
+body.home button:focus,
+body.home input[type="button"]:hover,
+body.home input[type="button"]:focus,
+body.home input[type="submit"]:hover,
+body.home input[type="submit"]:focus {
+    background-color: #0073aa !important;
+    color: #fff !important;
+    border-color: #0073aa !important;
+}
+
+/* Focus visibile per accessibilità */
+body.home *:focus {
+    outline: 2px solid #0073aa !important;
+    outline-offset: 2px !important;
+}
+
+/* Correzione per elementi con colore di testo troppo chiaro */
+body.home .wp-block-quote,
+body.home blockquote {
+    color: #333 !important;
+    border-left: 4px solid #0073aa !important;
+}
+
+/* Correzione per caption e didascalie */
+body.home figcaption,
+body.home .wp-caption-text {
+    color: #4a4a4a !important;
+}
