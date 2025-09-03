@@ -1,0 +1,28 @@
+/*
+ * Custom CSS Fix for Monitor Democracy Padding Issue
+ * This file fixes inconsistent padding between the Monitor Democracy section and components below it
+ */
+
+/* Fix only for the specific problematic element that has negative margin */
+.elementor-2 .elementor-element.elementor-element-726afb71 {
+    margin-bottom: 0px !important;
+    --margin-bottom: 0px !important;
+}
+
+/* Ensure proper spacing after Monitor Democracy section */
+.elementor-2 .elementor-element.elementor-element-726afb71 + .elementor-section {
+    margin-top: 30px !important;
+}
+
+/* Responsive adjustments for the spacing */
+@media (max-width: 1024px) {
+    .elementor-2 .elementor-element.elementor-element-726afb71 + .elementor-section {
+        margin-top: 20px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .elementor-2 .elementor-element.elementor-element-726afb71 + .elementor-section {
+        margin-top: 15px !important;
+    }
+}

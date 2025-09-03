@@ -1,0 +1,20 @@
+[2025-08-24 20:53:25] SECURITY: PLUGIN_ACTIVATED - Bocconi Security Plugin activated - IP: 127.0.0.1
+[2025-08-24 20:53:47] SECURITY: PLUGIN_DEACTIVATED - Bocconi Security Plugin deactivated - IP: 127.0.0.1
+[2025-08-24 20:53:50] SECURITY: PLUGIN_ACTIVATED - Bocconi Security Plugin activated - IP: 127.0.0.1
+[2025-08-24 20:54:22] SECURITY: PLUGIN_DEACTIVATED - Bocconi Security Plugin deactivated - IP: 127.0.0.1
+[2025-08-26 21:37:35] SECURITY: PLUGIN_ACTIVATED - Bocconi Security Plugin activated - IP: 127.0.0.1
+[2025-09-03 07:54:39] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:47:26] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:47:30] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:47:37] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:47:43] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:47:57] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:48:06] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:49:02] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:49:20] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:52:05] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 10:52:23] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 11:02:02] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 11:03:00] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 11:06:13] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 11:12:51] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}

@@ -1,0 +1,82 @@
+/* CSS per migliorare la qualità delle immagini senza sgranarle */
+
+/* Ottimizzazione generale delle immagini */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+}
+
+/* Specifico per le immagini degli articoli */
+.post img,
+.wp-post-image {
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Miglioramento per le immagini in evidenza */
+.post-thumbnail img,
+.attachment-large {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: bicubic;
+    image-rendering: auto;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Prevenire la pixelazione durante il ridimensionamento */
+@media (min-width: 768px) {
+    .post img {
+        image-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Ottimizzazione per dispositivi ad alta densità */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .post img,
+    .wp-post-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+    }
+}
+
+/* Stile per le immagini nell'archivio */
+.post .wp-post-image {
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post .wp-post-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Assicurarsi che le immagini non si sgranino durante le animazioni */
+.post img {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Miglioramento della nitidezza per browser WebKit */
+@supports (-webkit-appearance: none) {
+    .post img {
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+    }
+}

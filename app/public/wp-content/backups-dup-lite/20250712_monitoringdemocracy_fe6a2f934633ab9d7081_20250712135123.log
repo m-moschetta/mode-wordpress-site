@@ -1,0 +1,75 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: July 12, 2025 1:51 pm
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.5.12
+WORDPRESS:	6.8.1
+PHP INFO:	8.2.27 | SAPI: fpm-fcgi
+SERVER:		nginx/1.26.1 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (256M default) 
+MEMORY STACK: 8MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP(query limit - 100)
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Not Supported
+TABLES: total:21 | filtered:0 | create:21
+FILTERED: []
+SQL CREATED: 20250712_monitoringdemocracy_fe6a2f934633ab9d7081_20250712135123_database.sql
+SQL FILE SIZE: 15.15MB (15888405)
+SQL FILE TIME: 2025-07-12 13:51:30
+SQL RUNTIME: 0.34 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  /Users/mariomoschetta/Local Sites/bocconi-prova/app/public
+ARCHIVE FILE: 20250712_monitoringdemocracy_fe6a2f934633ab9d7081_20250712135123_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	222.82MB
+STATS:	Dirs 1,900 | Files 10,043
+SQL ADDED: 20250712_monitoringdemocracy_fe6a2f934633ab9d7081_20250712135123_database.sql
+ZipArchive Object
+(
+    [lastId] => 11942
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 11943
+    [filename] => /Users/mariomoschetta/Local Sites/bocconi-prova/app/public/wp-content/backups-dup-lite/tmp/20250712_monitoringdemocracy_fe6a2f934633ab9d7081_20250712135123_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 11942
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 95.63MB
+ARCHIVE RUNTIME: 19.74 sec.
+MEMORY STACK: 12MB
+building installer
+ARCHIVE CONSISTENCY TEST: PASS
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 15.15MB
+INSTALLER FILE: 73.5KB
+ARCHIVE FILE: 97.59MB 
+EXPECTED FILE/DIRECTORY COUNT: 11,943
+ACTUAL FILE/DIRECTORY COUNT: 11,942
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[1]
+TOTAL PROCESS RUNTIME: 20.78 sec.
+PEAK PHP MEMORY USED: 14MB
+DONE PROCESSING => 20250712_monitoringdemocracy July 12, 2025 1:51 pm
+
