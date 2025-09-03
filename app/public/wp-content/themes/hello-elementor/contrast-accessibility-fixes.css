@@ -1,0 +1,146 @@
+/*
+ * Correzioni per il contrasto dei colori - WCAG 2.1 AA Compliance
+ * Questo file corregge i problemi di contrasto identificati nel tema
+ */
+
+/* Correzione per il colore #666 che non rispetta il contrasto minimo */
+.site-navigation ul.menu li.menu-item-has-children:after {
+    color: #4a4a4a !important; /* Migliora il contrasto da #666 */
+}
+
+/* Correzione per testi con colore #666 */
+p[style*="color: #666"],
+.post-meta[style*="color: #666"],
+.category-description[style*="color: #666"] {
+    color: #4a4a4a !important;
+}
+
+/* Correzione per elementi inline con colore #666 */
+[style*="color: #666"] {
+    color: #4a4a4a !important;
+}
+
+/* Correzione per bordi con colore #666 che potrebbero essere troppo chiari */
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+    border: 1px solid #4a4a4a !important; /* Migliora il contrasto da #666 */
+}
+
+/* Correzione per il colore dei link nel menu dropdown */
+.site-navigation-dropdown ul.menu li a {
+    color: #333 !important; /* Migliora il contrasto da #55595c */
+}
+
+/* Correzione per il toggle del menu mobile */
+.site-navigation-toggle {
+    color: #333 !important; /* Migliora il contrasto da #494c4f */
+}
+
+/* Correzione per elementi con background rgba troppo trasparente */
+.site-navigation-toggle {
+    background-color: rgba(0,0,0,.1) !important; /* Migliora il contrasto da .05 */
+}
+
+/* Correzione per bordi delle tabelle */
+table td,
+table th {
+    border: 1px solid #666 !important; /* Mantiene un contrasto accettabile */
+}
+
+/* Correzione per elementi con colore #ccc */
+[style*="border: 1px solid #ccc"] {
+    border-color: #999 !important;
+}
+
+/* Correzione per elementi con background #f8f9fa che potrebbero avere problemi con testo chiaro */
+.istruzioni[style*="background: #f8f9fa"] {
+    background: #f0f0f0 !important;
+}
+
+/* Assicura che tutti i link abbiano un contrasto adeguato */
+a {
+    color: #0073aa !important;
+}
+
+a:hover,
+a:focus {
+    color: #005a87 !important;
+}
+
+/* Correzione per elementi con colore #55595c */
+.site-navigation-dropdown ul.menu li a {
+    color: #333 !important;
+}
+
+/* Correzione per elementi con colore #494c4f */
+.site-navigation-toggle {
+    color: #333 !important;
+}
+
+/* Media query per modalità ad alto contrasto */
+@media (prefers-contrast: high) {
+    * {
+        color: #000 !important;
+        background-color: #fff !important;
+    }
+    
+    a {
+        color: #0000ff !important;
+    }
+    
+    a:visited {
+        color: #800080 !important;
+    }
+    
+    button,
+    input[type="button"],
+    input[type="submit"] {
+        background-color: #000 !important;
+        color: #fff !important;
+        border: 2px solid #000 !important;
+    }
+}
+
+/* Assicura che il focus sia sempre visibile */
+*:focus {
+    outline: 2px solid #0073aa !important;
+    outline-offset: 2px !important;
+}
+
+/* Correzione specifica per elementi con stili inline problematici */
+[style*="color: #666"] {
+    color: #4a4a4a !important;
+}
+
+[style*="color:#666"] {
+    color: #4a4a4a !important;
+}
+
+/* Correzione per elementi con background gradient che potrebbero avere problemi di contrasto */
+.category-card[style*="background: linear-gradient"] {
+    background: linear-gradient(135deg, #4a5568 0%, #553c9a 100%) !important;
+    color: #fff !important;
+}
+
+/* Assicura che tutti i testi su sfondi scuri abbiano colore bianco */
+[style*="background: #0073aa"],
+[style*="background: #00a32a"],
+[style*="background: #8bc34a"],
+[style*="background-color: #92003b"] {
+    color: #fff !important;
+}
+
+/* Correzione per codice con background troppo chiaro */
+code[style*="background: #f1f1f1"] {
+    background: #e8e8e8 !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+}

@@ -49,6 +49,19 @@ function hello_elementor_search_accessibility_styles() {
 add_action( 'wp_enqueue_scripts', 'hello_elementor_search_accessibility_styles' );
 
 /**
+ * Enqueue contrast accessibility fixes
+ */
+function hello_elementor_contrast_accessibility_styles() {
+	wp_enqueue_style(
+		'contrast-accessibility-fixes',
+		get_template_directory_uri() . '/contrast-accessibility-fixes.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_contrast_accessibility_styles' );
+
+/**
  * Include accessibility fixes for ThemesFlat search widget
  */
 require_once get_template_directory() . '/tf-search-widget-accessibility-fix.php';
