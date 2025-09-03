@@ -67,6 +67,11 @@ add_action( 'wp_enqueue_scripts', 'hello_elementor_contrast_accessibility_styles
 require_once get_template_directory() . '/tf-search-widget-accessibility-fix.php';
 
 /**
+ * Include semantic landmarks accessibility fixes
+ */
+require_once get_template_directory() . '/semantic-landmarks-accessibility-fix.php';
+
+/**
  * Disable comments completely
  */
 function hello_elementor_disable_comments() {
