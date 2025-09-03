@@ -12,15 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <main id="content" class="site-main">
 
 	<?php if ( apply_filters( 'hello_elementor_page_title', true ) ) : ?>
-		<div class="page-header">
+		<header class="page-header">
 			<h1 class="entry-title">
 				<?php echo esc_html__( 'Search results for: ', 'hello-elementor' ); ?>
 				<span><?php echo get_search_query(); ?></span>
 			</h1>
-		</div>
+		</header>
 	<?php endif; ?>
 
-	<div class="page-content">
+	<section class="page-content" aria-label="Search results">
 		<?php if ( have_posts() ) : ?>
 			<?php
 			while ( have_posts() ) :
@@ -28,8 +28,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$post_link = get_permalink();
 				?>
 				<article class="post">
+					<header class="entry-header">
+						<?php
+						printf( '<h2 class="%s"><a href="%s">%s</a></h2>', 'entry-title', esc_url( $post_link ), wp_kses_post( get_the_title() ) );
+						?>
+					</header>
 					<?php
-					printf( '<h2 class="%s"><a href="%s">%s</a></h2>', 'entry-title', esc_url( $post_link ), wp_kses_post( get_the_title() ) );
 					if ( has_post_thumbnail() ) {
 						printf( '<a href="%s">%s</a>', esc_url( $post_link ), get_the_post_thumbnail( $post, 'large' ) );
 					}
@@ -42,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php else : ?>
 			<p><?php echo esc_html__( 'It seems we can\'t find what you\'re looking for.', 'hello-elementor' ); ?></p>
 		<?php endif; ?>
-	</div>
+	</section>
 
 	<?php
 	global $wp_query;

@@ -36,6 +36,19 @@ function hello_elementor_custom_padding_fix_styles() {
 add_action( 'wp_enqueue_scripts', 'hello_elementor_custom_padding_fix_styles' );
 
 /**
+ * Enqueue accessibility improvements styles
+ */
+function hello_elementor_accessibility_styles() {
+	wp_enqueue_style(
+		'hello-elementor-accessibility',
+		get_template_directory_uri() . '/accessibility-improvements.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_accessibility_styles' );
+
+/**
  * Disable comments completely
  */
 function hello_elementor_disable_comments() {

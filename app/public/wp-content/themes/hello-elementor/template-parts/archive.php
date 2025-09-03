@@ -11,15 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <main id="content" class="site-main">
 
-	<div class="page-content">
+	<section class="page-content" aria-label="Archive posts">
 		<?php
 			while ( have_posts() ) {
 				the_post();
 				$post_link = get_permalink();
 				?>
 				<article class="post">
+					<header class="entry-header">
+						<?php
+						printf( '<h2 class="%s"><a href="%s">%s</a></h2>', 'entry-title', esc_url( $post_link ), wp_kses_post( get_the_title() ) );
+						?>
+					</header>
 					<?php
-					printf( '<h2 class="%s"><a href="%s">%s</a></h2>', 'entry-title', esc_url( $post_link ), wp_kses_post( get_the_title() ) );
 					if ( has_post_thumbnail() ) {
 						printf( '<a href="%s">%s</a>', esc_url( $post_link ), get_the_post_thumbnail( $post, 'large' ) );
 					}
@@ -27,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				</article>
 			<?php } ?>
-	</div>
+	</section>
 
 	<?php
 	global $wp_query;

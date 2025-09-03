@@ -14,9 +14,9 @@ while ( have_posts() ) :
 
 <main id="content" <?php post_class( 'site-main' ); ?>>
 
-	<div class="page-content">
+	<article class="page-content" aria-label="Post content">
 		<?php the_content(); ?>
-	</div>
+	</article>
 
 </main>
 
