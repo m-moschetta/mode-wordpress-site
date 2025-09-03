@@ -164,7 +164,7 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
             
             // Function to add landmarks to elements missing them
             function addMissingLandmarks() {
-                // Find interactive elements not in landmarks
+                // Find interactive elements and content elements not in landmarks
                 var interactiveSelectors = [
                     'button:not([role="presentation"]):not([aria-hidden="true"])',
                     'input[type="button"]:not([aria-hidden="true"])',
@@ -175,7 +175,17 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                     'input[type="email"]:not([aria-hidden="true"])',
                     'input[type="search"]:not([aria-hidden="true"])',
                     'textarea:not([aria-hidden="true"])',
-                    'select:not([aria-hidden="true"])'
+                    'select:not([aria-hidden="true"])',
+                    // Add specific problematic elements
+                    'h1.elementor-heading-title:not([aria-hidden="true"])',
+                    'h2.elementor-heading-title:not([aria-hidden="true"])',
+                    'h3.elementor-heading-title:not([aria-hidden="true"])',
+                    'h4.elementor-heading-title:not([aria-hidden="true"])',
+                    'h5.elementor-heading-title:not([aria-hidden="true"])',
+                    'h6.elementor-heading-title:not([aria-hidden="true"])',
+                    'h3.jkit-post-title:not([aria-hidden="true"])',
+                    'ul.slides:not([aria-hidden="true"])',
+                    'a.flex-active:not([aria-hidden="true"])'
                 ];
                 
                 var landmarkSelectors = [
@@ -218,6 +228,27 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                                 wrapper = document.createElement('nav');
                                 wrapper.setAttribute('aria-label', 'Navigation');
                                 wrapper.className = 'hello-landmark-nav';
+                            } else if (element.matches('h1, h2, h3, h4, h5, h6')) {
+                                // Headings should be in main content or section
+                                wrapper = document.createElement('section');
+                                var headingText = element.textContent.trim();
+                                var label = headingText ? 'Section: ' + headingText.substring(0, 50) : 'Content Section';
+                                wrapper.setAttribute('aria-labelledby', element.id || 'heading-' + Date.now());
+                                if (!element.id) {
+                                    element.id = 'heading-' + Date.now();
+                                }
+                                wrapper.className = 'hello-landmark-main';
+                            } else if (element.matches('ul.slides, .slides')) {
+                                // Slideshow/carousel content
+                                wrapper = document.createElement('section');
+                                wrapper.setAttribute('role', 'region');
+                                wrapper.setAttribute('aria-label', 'Image Slideshow');
+                                wrapper.className = 'hello-landmark-complementary';
+                            } else if (element.matches('a.flex-active, .flex-active')) {
+                                // Slider navigation
+                                wrapper = document.createElement('nav');
+                                wrapper.setAttribute('aria-label', 'Slideshow Navigation');
+                                wrapper.className = 'hello-landmark-nav';
                             } else {
                                 wrapper = document.createElement('div');
                                 wrapper.setAttribute('role', 'region');
@@ -243,9 +274,49 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                 addMissingLandmarks();
             }
             
+            // Function to handle Elementor-specific content grouping
+            function handleElementorContent() {
+                // Group Elementor widgets that should be in the same landmark
+                var elementorSections = document.querySelectorAll('.elementor-section:not([role]):not([aria-label])');
+                elementorSections.forEach(function(section) {
+                    if (!section.closest('main, [role="main"], section, [role="region"]')) {
+                        section.setAttribute('role', 'region');
+                        var headings = section.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                        if (headings.length > 0) {
+                            var firstHeading = headings[0];
+                            var sectionLabel = firstHeading.textContent.trim().substring(0, 50) || 'Content Section';
+                            section.setAttribute('aria-label', sectionLabel);
+                        } else {
+                            section.setAttribute('aria-label', 'Content Section');
+                        }
+                        section.classList.add('hello-landmark-complementary');
+                    }
+                });
+                
+                // Handle JKit post blocks
+                var jkitPostBlocks = document.querySelectorAll('.jeg-elementor-kit.jkit-postblock:not([role]):not([aria-label])');
+                jkitPostBlocks.forEach(function(block) {
+                    if (!block.closest('main, [role="main"], section, [role="region"]')) {
+                        block.setAttribute('role', 'region');
+                        block.setAttribute('aria-label', 'Post Content');
+                        block.classList.add('hello-landmark-complementary');
+                    }
+                });
+            }
+            
             // Also run after Elementor loads (if present)
             if (window.elementorFrontend) {
-                window.elementorFrontend.hooks.addAction('frontend/element_ready/global', addMissingLandmarks);
+                window.elementorFrontend.hooks.addAction('frontend/element_ready/global', function() {
+                    addMissingLandmarks();
+                    handleElementorContent();
+                });
+            }
+            
+            // Run Elementor-specific handling
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', handleElementorContent);
+            } else {
+                handleElementorContent();
             }
             
         })();
