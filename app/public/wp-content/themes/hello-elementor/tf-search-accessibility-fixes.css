@@ -1,0 +1,129 @@
+/* Correzioni di accessibilità per il widget di ricerca ThemesFlat */
+
+/* Ripristina il focus outline per l'accessibilità da tastiera */
+.tf-widget-search button:focus {
+    outline: 2px solid #0073aa !important;
+    outline-offset: 2px !important;
+}
+
+/* Migliora il contrasto per il pulsante di ricerca */
+.tf-widget-search .tf-icon-search {
+    color: #333 !important;
+    background-color: #f0f0f0 !important;
+    border: 1px solid #ccc !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+}
+
+.tf-widget-search .tf-icon-search:hover {
+    background-color: #0073aa !important;
+    color: #fff !important;
+    border-color: #0073aa !important;
+}
+
+.tf-widget-search .tf-icon-search:focus {
+    background-color: #0073aa !important;
+    color: #fff !important;
+    border-color: #0073aa !important;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3) !important;
+}
+
+/* Migliora il contrasto del campo di ricerca nel modal */
+.tf-widget-search .search-field {
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    color: #fff !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.tf-widget-search .search-field:focus {
+    border-color: #fff !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3) !important;
+    outline: none !important;
+}
+
+/* Migliora il pulsante di submit nel modal */
+.tf-widget-search .search-submit {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.tf-widget-search .search-submit:hover,
+.tf-widget-search .search-submit:focus {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: #fff !important;
+    outline: 2px solid #fff !important;
+    outline-offset: 2px !important;
+}
+
+/* Migliora il pulsante di chiusura del modal */
+.tf-widget-search .tf-close-modal {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+}
+
+.tf-widget-search .tf-close-modal:hover,
+.tf-widget-search .tf-close-modal:focus {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: #fff !important;
+    outline: 2px solid #fff !important;
+    outline-offset: 2px !important;
+}
+
+/* Supporto per modalità ad alto contrasto */
+@media (prefers-contrast: high) {
+    .tf-widget-search .tf-icon-search {
+        background-color: #000 !important;
+        color: #fff !important;
+        border: 2px solid #fff !important;
+    }
+    
+    .tf-widget-search .tf-icon-search:hover,
+    .tf-widget-search .tf-icon-search:focus {
+        background-color: #fff !important;
+        color: #000 !important;
+        border-color: #000 !important;
+    }
+}
+
+/* Supporto per riduzione del movimento */
+@media (prefers-reduced-motion: reduce) {
+    .tf-widget-search .tf-modal-search-panel {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .tf-widget-search .tf-icon-search,
+    .tf-widget-search .search-submit,
+    .tf-widget-search .tf-close-modal {
+        transition: none !important;
+    }
+}
+
+/* Migliora la visibilità per screen reader */
+.tf-widget-search .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Assicura che il widget sia in un landmark appropriato */
+.tf-widget-search {
+    /* Il widget dovrebbe essere racchiuso in un elemento <nav> o <section> con aria-label */
+}
+
+/* Migliora l'accessibilità del placeholder */
+.tf-widget-search .search-field::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+    opacity: 1 !important;
+}

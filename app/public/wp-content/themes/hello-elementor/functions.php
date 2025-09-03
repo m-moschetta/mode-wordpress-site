@@ -36,6 +36,24 @@ function hello_elementor_custom_padding_fix_styles() {
 add_action( 'wp_enqueue_scripts', 'hello_elementor_custom_padding_fix_styles' );
 
 /**
+ * Enqueue accessibility improvements for search widget
+ */
+function hello_elementor_search_accessibility_styles() {
+	wp_enqueue_style(
+		'hello-elementor-search-accessibility',
+		get_template_directory_uri() . '/tf-search-accessibility-fixes.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_search_accessibility_styles' );
+
+/**
+ * Include accessibility fixes for ThemesFlat search widget
+ */
+require_once get_template_directory() . '/tf-search-widget-accessibility-fix.php';
+
+/**
  * Disable comments completely
  */
 function hello_elementor_disable_comments() {

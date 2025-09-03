@@ -18,3 +18,6 @@
 [2025-09-03 11:03:00] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
 [2025-09-03 11:06:13] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
 [2025-09-03 11:12:51] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 12:25:36] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 12:26:08] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
+[2025-09-03 16:10:16] INFO successful_login IP:::1 DATA:{"username":"Bocconi","ip":"127.0.0.1","user_id":1}
