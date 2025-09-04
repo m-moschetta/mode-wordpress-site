@@ -192,17 +192,23 @@ h1.entry-title,
     color: white !important;
 }
 
-/* JEG Elementor Kit - Post List Titles */
-.jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
-.jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title,
-.elementor-element .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
-.elementor-element .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title {
+/* JEG Elementor Kit - Post List Titles (Solo Homepage) */
+body.home .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+body.home .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title,
+body.home .elementor-element .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+body.home .elementor-element .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title,
+.home .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+.home .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title,
+.home .elementor-element .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+.home .elementor-element .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title {
     color: white !important;
 }
 
-/* Gallery Item Titles */
-.jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title,
-.jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title:hover {
+/* Gallery Item Titles (Solo Homepage) */
+body.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title,
+body.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title:hover,
+.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title,
+.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title:hover {
     color: white !important;
 }
 
