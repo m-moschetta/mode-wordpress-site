@@ -187,7 +187,10 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                     'ul.slides:not([aria-hidden="true"])',
                     'a.flex-active:not([aria-hidden="true"])',
                     'ol.flex-control-nav:not([aria-hidden="true"])',
-                    'p[data-lov-id]:not([aria-hidden="true"])'
+                    'p[data-lov-id]:not([aria-hidden="true"])',
+                    'h3.elementor-icon-box-title:not([aria-hidden="true"])',
+                    'ul.elementor-icon-list-items:not([aria-hidden="true"])',
+                    'p:not([aria-hidden="true"]):not([role]):not([class*="landmark"]):not([class*="sr-only"]):not([class*="screen-reader"])'
                 ];
                 
                 var landmarkSelectors = [
@@ -248,6 +251,19 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                                 wrapper = document.createElement('nav');
                                 wrapper.setAttribute('aria-label', 'Slideshow Navigation Controls');
                                 wrapper.className = 'hello-landmark-nav';
+                            } else if (element.matches('h3.elementor-icon-box-title')) {
+                                // Elementor icon box titles
+                                wrapper = document.createElement('section');
+                                var titleText = element.textContent.trim();
+                                var label = titleText ? titleText.substring(0, 50) + ' Section' : 'Icon Box Section';
+                                wrapper.setAttribute('aria-label', label);
+                                wrapper.className = 'hello-landmark-main';
+                            } else if (element.matches('ul.elementor-icon-list-items')) {
+                                // Elementor icon lists
+                                wrapper = document.createElement('section');
+                                wrapper.setAttribute('aria-label', 'Icon List');
+                                wrapper.setAttribute('role', 'region');
+                                wrapper.className = 'hello-landmark-complementary';
                             } else {
                                 wrapper = document.createElement('div');
                                 wrapper.setAttribute('role', 'region');
