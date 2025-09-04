@@ -130,6 +130,36 @@ a:focus {
     color: #fff !important;
 }
 
+/* Specific fixes for category cards with gradient backgrounds */
+.category-card {
+    color: white !important;
+}
+
+/* Fix for Elementor heading titles on dark backgrounds */
+.elementor-heading-title {
+    color: white !important;
+}
+
+/* Fix for post titles and entry titles on dark backgrounds */
+h1.entry-title,
+.post .entry-title,
+.post .entry-title a {
+    color: white !important;
+}
+
+/* Fix for Elementor widget headings */
+.elementor-widget-heading .elementor-heading-title {
+    color: white !important;
+}
+
+/* Fix for post title widgets */
+.jeg-elementor-kit.jkit-post-title .post-title,
+.jeg-elementor-kit.jkit-post-title .post-title a,
+.tf-post-title .post-title,
+.tf-post-title .post-title a {
+    color: white !important;
+}
+
 /* Assicura che tutti i testi su sfondi scuri abbiano colore bianco */
 [style*="background: #0073aa"],
 [style*="background: #00a32a"],
