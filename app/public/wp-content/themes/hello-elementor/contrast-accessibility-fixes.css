@@ -192,6 +192,20 @@ h1.entry-title,
     color: white !important;
 }
 
+/* JEG Elementor Kit - Post List Titles */
+.jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+.jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title,
+.elementor-element .jeg-elementor-kit.jkit-postlist article a .jkit-postlist-title,
+.elementor-element .jeg-elementor-kit.jkit-postlist article:hover a .jkit-postlist-title {
+    color: white !important;
+}
+
+/* Gallery Item Titles */
+.jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title,
+.jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title:hover {
+    color: white !important;
+}
+
 /* Assicura che tutti i testi su sfondi scuri abbiano colore bianco */
 [style*="background: #0073aa"],
 [style*="background: #00a32a"],
