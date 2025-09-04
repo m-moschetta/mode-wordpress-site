@@ -135,28 +135,60 @@ a:focus {
     color: white !important;
 }
 
-/* Fix for Elementor heading titles on dark backgrounds */
-.elementor-heading-title {
+/* Fix for Elementor heading titles on dark backgrounds - Higher specificity */
+.elementor-element .elementor-heading-title,
+.elementor-widget .elementor-heading-title,
+.elementor-heading-title,
+h1.elementor-heading-title,
+h2.elementor-heading-title,
+h3.elementor-heading-title,
+h4.elementor-heading-title,
+h5.elementor-heading-title,
+h6.elementor-heading-title {
     color: white !important;
 }
 
-/* Fix for post titles and entry titles on dark backgrounds */
+/* Fix for post titles and entry titles on dark backgrounds - Higher specificity */
 h1.entry-title,
 .post .entry-title,
-.post .entry-title a {
+.post .entry-title a,
+.entry-title a:link,
+.entry-title a:visited,
+.entry-title a:hover,
+.entry-title a:active {
     color: white !important;
 }
 
-/* Fix for Elementor widget headings */
-.elementor-widget-heading .elementor-heading-title {
+/* Fix for Elementor widget headings - Higher specificity */
+.elementor-widget-heading .elementor-heading-title,
+.elementor-element .elementor-widget-heading .elementor-heading-title,
+.elementor .elementor-widget-heading .elementor-heading-title {
     color: white !important;
 }
 
-/* Fix for post title widgets */
+/* Fix for post title widgets - Higher specificity */
 .jeg-elementor-kit.jkit-post-title .post-title,
 .jeg-elementor-kit.jkit-post-title .post-title a,
 .tf-post-title .post-title,
-.tf-post-title .post-title a {
+.tf-post-title .post-title a,
+.elementor-element .jeg-elementor-kit.jkit-post-title .post-title,
+.elementor-element .jeg-elementor-kit.jkit-post-title .post-title a {
+    color: white !important;
+}
+
+/* Override any blue color styles that might be applied */
+.elementor-heading-title[style*="color"],
+.entry-title[style*="color"],
+.post-title[style*="color"] {
+    color: white !important;
+}
+
+/* Force white color on any heading inside dark sections */
+[class*="dark"] .elementor-heading-title,
+[class*="dark"] .entry-title,
+[class*="dark"] .post-title,
+[style*="background-color: #"] .elementor-heading-title,
+[style*="background: #"] .elementor-heading-title {
     color: white !important;
 }
 
