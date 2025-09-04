@@ -204,6 +204,32 @@ body.home .elementor-element .jeg-elementor-kit.jkit-postlist article:hover a .j
     color: white !important;
 }
 
+/* JEG Elementor Kit - Post Title Widget Links (Solo Homepage) */
+body.home .jeg-elementor-kit.jkit-post-title .post-title.style-color,
+body.home .jeg-elementor-kit.jkit-post-title .post-title.style-color a,
+body.home .jeg-elementor-kit.jkit-post-title:hover .post-title.style-color,
+body.home .jeg-elementor-kit.jkit-post-title:hover .post-title.style-color a,
+.home .jeg-elementor-kit.jkit-post-title .post-title.style-color,
+.home .jeg-elementor-kit.jkit-post-title .post-title.style-color a,
+.home .jeg-elementor-kit.jkit-post-title:hover .post-title.style-color,
+.home .jeg-elementor-kit.jkit-post-title:hover .post-title.style-color a {
+    color: white !important;
+}
+
+/* Override any link colors in post titles (Solo Homepage) */
+body.home .jeg-elementor-kit.jkit-postlist article a,
+body.home .jeg-elementor-kit.jkit-postlist article a:link,
+body.home .jeg-elementor-kit.jkit-postlist article a:visited,
+body.home .jeg-elementor-kit.jkit-postlist article a:hover,
+body.home .jeg-elementor-kit.jkit-postlist article a:active,
+.home .jeg-elementor-kit.jkit-postlist article a,
+.home .jeg-elementor-kit.jkit-postlist article a:link,
+.home .jeg-elementor-kit.jkit-postlist article a:visited,
+.home .jeg-elementor-kit.jkit-postlist article a:hover,
+.home .jeg-elementor-kit.jkit-postlist article a:active {
+    color: white !important;
+}
+
 /* Gallery Item Titles (Solo Homepage) */
 body.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title,
 body.home .jeg-elementor-kit.jkit-gallery .gallery-items .gallery-item-wrap .grid-item .caption-wrap .item-caption-over .item-title:hover,
