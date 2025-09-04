@@ -185,7 +185,9 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                     'h6.elementor-heading-title:not([aria-hidden="true"])',
                     'h3.jkit-post-title:not([aria-hidden="true"])',
                     'ul.slides:not([aria-hidden="true"])',
-                    'a.flex-active:not([aria-hidden="true"])'
+                    'a.flex-active:not([aria-hidden="true"])',
+                    'ol.flex-control-nav:not([aria-hidden="true"])',
+                    'p[data-lov-id]:not([aria-hidden="true"])'
                 ];
                 
                 var landmarkSelectors = [
@@ -232,11 +234,8 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                                 // Headings should be in main content or section
                                 wrapper = document.createElement('section');
                                 var headingText = element.textContent.trim();
-                                var label = headingText ? 'Section: ' + headingText.substring(0, 50) : 'Content Section';
-                                wrapper.setAttribute('aria-labelledby', element.id || 'heading-' + Date.now());
-                                if (!element.id) {
-                                    element.id = 'heading-' + Date.now();
-                                }
+                                var label = headingText ? headingText.substring(0, 50) + ' Section' : 'Content Section';
+                                wrapper.setAttribute('aria-label', label);
                                 wrapper.className = 'hello-landmark-main';
                             } else if (element.matches('ul.slides, .slides')) {
                                 // Slideshow/carousel content
@@ -244,10 +243,10 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
                                 wrapper.setAttribute('role', 'region');
                                 wrapper.setAttribute('aria-label', 'Image Slideshow');
                                 wrapper.className = 'hello-landmark-complementary';
-                            } else if (element.matches('a.flex-active, .flex-active')) {
-                                // Slider navigation
+                            } else if (element.matches('a.flex-active, .flex-active, ol.flex-control-nav, .flex-control-nav')) {
+                                // Slider navigation and controls
                                 wrapper = document.createElement('nav');
-                                wrapper.setAttribute('aria-label', 'Slideshow Navigation');
+                                wrapper.setAttribute('aria-label', 'Slideshow Navigation Controls');
                                 wrapper.className = 'hello-landmark-nav';
                             } else {
                                 wrapper = document.createElement('div');
@@ -269,9 +268,35 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
             
             // Run on DOM ready
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', addMissingLandmarks);
+                document.addEventListener('DOMContentLoaded', function() {
+                    fixExistingSectionLabels();
+                    addMissingLandmarks();
+                });
             } else {
+                fixExistingSectionLabels();
                 addMissingLandmarks();
+            }
+            
+            // Function to fix existing sections with unclear aria-labelledby references
+            function fixExistingSectionLabels() {
+                var sectionsWithLabelledBy = document.querySelectorAll('section[aria-labelledby]');
+                sectionsWithLabelledBy.forEach(function(section) {
+                    var labelledById = section.getAttribute('aria-labelledby');
+                    var referencedElement = document.getElementById(labelledById);
+                    
+                    if (referencedElement) {
+                        var headingText = referencedElement.textContent.trim();
+                        if (headingText) {
+                            // Replace aria-labelledby with clear aria-label
+                            section.removeAttribute('aria-labelledby');
+                            section.setAttribute('aria-label', headingText.substring(0, 50) + ' Section');
+                        }
+                    } else {
+                        // Referenced element doesn't exist, provide generic label
+                        section.removeAttribute('aria-labelledby');
+                        section.setAttribute('aria-label', 'Content Section');
+                    }
+                });
             }
             
             // Function to handle Elementor-specific content grouping
@@ -307,6 +332,7 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
             // Also run after Elementor loads (if present)
             if (window.elementorFrontend) {
                 window.elementorFrontend.hooks.addAction('frontend/element_ready/global', function() {
+                    fixExistingSectionLabels();
                     addMissingLandmarks();
                     handleElementorContent();
                 });
@@ -314,8 +340,12 @@ class Hello_Elementor_Semantic_Landmarks_Fix {
             
             // Run Elementor-specific handling
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', handleElementorContent);
+                document.addEventListener('DOMContentLoaded', function() {
+                    fixExistingSectionLabels();
+                    handleElementorContent();
+                });
             } else {
+                fixExistingSectionLabels();
                 handleElementorContent();
             }
             
